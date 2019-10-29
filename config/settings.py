@@ -33,6 +33,10 @@ PROJECT_APPS = [
     "users.apps.UsersConfig",
     "rooms.apps.RoomsConfig",
     "core.apps.CoreConfig",
+    "reviews.apps.ReviewsConfig",
+    "reservations.apps.ReservationsConfig",
+    "lists.apps.ListsConfig",
+    "conversations.apps.ConversationsConfig",
 ]
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -121,3 +125,7 @@ STATIC_URL = "/static/"
 
 
 AUTH_USER_MODEL = "users.User"
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+

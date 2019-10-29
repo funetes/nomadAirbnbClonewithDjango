@@ -9,4 +9,3 @@ class TimeStampedModel(models.Model):
     class Meta:
         # not going db , but use other apps
         abstract = True
-
