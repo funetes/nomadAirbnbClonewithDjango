@@ -66,9 +66,15 @@ class Room(core_models.TimeStampedModel):
     def all_reviews(self):
         all_reviews = self.reviews.all()
         review_ratings = 0
-        for review in all_reviews:
-            review_ratings += review.get_average()
-        return round(review_ratings / len(all_reviews), 2)
+        if len(all_reviews) > 0:
+            for review in all_reviews:
+                review_ratings += review.get_average()
+            return round(review_ratings / len(all_reviews), 2)
+        return 0
+
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)
 
 
 class Photo(core_models.TimeStampedModel):

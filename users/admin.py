@@ -2,11 +2,18 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 from . import models
 
+# from rooms.models import Room
+
 # admin.py custom admin panel looks like
+
+
+# class RoomInline(admin.TabularInline):
+#     model = Room
 
 
 @admin.register(models.User)
 class CustomUserAdmin(UserAdmin):
+    # inlines = [RoomInline]
     fieldsets = UserAdmin.fieldsets + (
         (
             "CustomProfile",
